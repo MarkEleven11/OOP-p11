@@ -1,12 +1,8 @@
 package Transport;
 
-public class Cars {
-    private final String brand;
-    private final String model;
+public class Cars extends Transport {
+
     private double engineVolume;
-    private String color;
-    private final int year;
-    private final String country;
     private String transmission;
     private final String carStyle;
     private String regNumber;
@@ -16,42 +12,20 @@ public class Cars {
 
     public Cars(String brand,
                 String model,
-                double engineVolume,
-                String color,
                 int year,
                 String country,
-                String transmission,
+                String color,
+                int maxSpeed,
                 String carStyle,
+                String transmission,
+                double engineVolume,
                 String regNumber,
                 int seatsNumber,
                 boolean tires,
                 Key key) {
 
-        if (model == null) {
-            this.model = "default";
-        } else this.model = model;
-        if (brand == null) {
-            this.brand = "default";
-        } else this.brand = brand;
-        if (country == null) {
-            this.country = "default";
-        } else this.country = country;
+        super(brand,model, year, country, color, maxSpeed);
 
-        if (engineVolume <= 0) {
-            this.engineVolume = 1.5;
-        } else this.engineVolume = engineVolume;
-
-        if (color == null) {
-            this.color = "белого";
-        } else this.color = color;
-
-        if (year <= 0) {
-            this.year = 2000;
-        } else this.year = year;
-
-        if (transmission == null) {
-            this.transmission = "Некорректное значение";
-        } else this.transmission = transmission;
 
         if (carStyle == null) {
             this.carStyle = "Неккоректное значение";
@@ -72,23 +46,19 @@ public class Cars {
         } else {
             this.key = key;
         }
-
     }
 
-    public String getBrand() {
-        return brand;
+
+    public String getTransmission() {
+        return transmission;
     }
 
-    public String getModel() {
-        return model;
+    public void setTransmission(String transmission) {
+        this.transmission = transmission;
     }
 
-    public int getYear() {
-        return year;
-    }
-
-    public String getCountry() {
-        return country;
+    public boolean isTires() {
+        return tires;
     }
 
     public String getCarStyle() {
@@ -105,22 +75,6 @@ public class Cars {
 
     public void setEngineVolume(double engineVolume) {
         this.engineVolume = engineVolume;
-    }
-
-    public String getColor() {
-        return color;
-    }
-
-    public void setColor(String color) {
-        this.color = color;
-    }
-
-    public String getTransmission() {
-        return transmission;
-    }
-
-    public void setTransmission(String transmission) {
-        this.transmission = transmission;
     }
 
     public String getRegNumber() {
